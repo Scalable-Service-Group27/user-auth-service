@@ -29,6 +29,7 @@ public class UserService {
     public void assignPermission(Long userId, String permissionName) {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new RuntimeException("User not found"));
+        permissionName = permissionName.trim();
         System.out.println("Looking for permission: " + permissionName);
         Permission permission = permissionRepository.findByName(permissionName)
                 .orElseThrow(() -> new RuntimeException("Permission not found"));
