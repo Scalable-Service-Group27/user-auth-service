@@ -38,6 +38,14 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Roles> roles = new HashSet<>();
 
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "user_permissions",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "permission_id")
+    )
+    private Set<Permission> permissions = new HashSet<>();
+
     public Long getId() {
         return id;
     }
@@ -85,4 +93,6 @@ public class User {
     public void setRoles(Set<Roles> roles) {
         this.roles = roles;
     }
+
+
 }
