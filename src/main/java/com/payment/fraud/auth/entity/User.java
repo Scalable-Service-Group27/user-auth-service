@@ -12,7 +12,7 @@ import java.util.Set;
 
 
 @Entity
-@Table(name = "users")
+@Table(name = "users", schema = "fraud_detection_db")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

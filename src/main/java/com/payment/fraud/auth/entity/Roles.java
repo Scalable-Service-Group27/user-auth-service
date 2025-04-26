@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 
 
 @Entity
-@Table(name = "roles")
+@Table(name = "roles",schema = "fraud_detection_db")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

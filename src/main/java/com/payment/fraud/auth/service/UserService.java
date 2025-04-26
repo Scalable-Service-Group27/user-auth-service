@@ -41,11 +41,17 @@ public class UserService {
     public void removePermission(Long userId, String permissionName) {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new RuntimeException("User not found"));
-
+        permissionName = permissionName.trim();
         Permission permission = permissionRepository.findByName(permissionName)
                 .orElseThrow(() -> new RuntimeException("Permission not found"));
 
         user.getPermissions().remove(permission);
         userRepository.save(user);
     }
+
+    public User findByUsername(String username) {
+        return userRepository.findByUsername(username)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+    }
+
 }
