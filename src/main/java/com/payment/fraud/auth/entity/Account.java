@@ -2,7 +2,11 @@ package com.payment.fraud.auth.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Setter;
+import lombok.Getter;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "account")
 @Data
@@ -21,4 +25,7 @@ public class Account {
     @OneToOne
     @JoinColumn(name = "user_id")
     private User user;
+
+    @Column(name = "account_enabled")
+    private Boolean accountEnabled;
 }

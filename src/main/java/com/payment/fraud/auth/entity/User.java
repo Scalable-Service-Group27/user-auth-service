@@ -46,6 +46,10 @@ public class User {
     )
     private Set<Permission> permissions = new HashSet<>();
 
+    @Column(name = "failed_login_attempts")
+    private int failedLoginAttempts;
+
+
     public Long getId() {
         return id;
     }
@@ -57,6 +61,7 @@ public class User {
     public String getUsername() {
         return username;
     }
+
 
     public void setUsername(String username) {
         this.username = username;
